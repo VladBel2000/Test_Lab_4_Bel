@@ -41,7 +41,7 @@ namespace Test_Lab_4
             public string RandomString(int length)
             {
                 Random rnd = new Random();
-                const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                const string chars = "аеёиоуыэюябвгджзйклмнпрстфхцчшщ)";
                 return new string(Enumerable.Repeat(chars, length)
                   .Select(s => s[rnd.Next(s.Length)]).ToArray());
             }
