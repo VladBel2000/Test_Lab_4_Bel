@@ -15,7 +15,7 @@ namespace Test_Lab_4
             public leader()
             {
                 answer = generate_answer();
-                answer = "Папа";
+                answer = "папа";
 
                 now_answer = generate_now_answer(answer.Length);
 
@@ -52,7 +52,6 @@ namespace Test_Lab_4
             public string generate_now_answer(int count_char)
             {
                 return new String('*', count_char);
-
             }
 
             public String get_now_answer()
@@ -60,6 +59,20 @@ namespace Test_Lab_4
                 return now_answer;
             }
 
+            public void check_now_answer(String vvod)
+            {
+                for(int i = 0; i < answer.Length; i++)
+                {
+                    if (answer[i] == Convert.ToChar(vvod))
+                    {
+                        string help = now_answer;
+                        char[] chars = help.ToCharArray();
+                        chars[i] = answer[i];
+                        help = new string(chars);
+                        now_answer = help;
+                    }
+                }
+            }
             public string generate_answer()
             {
                 //Создание объекта для генерации чисел
@@ -83,14 +96,16 @@ namespace Test_Lab_4
         static void Main(string[] args)
         {
             leader now_leader = new leader();
-            Console.WriteLine("Загаданное слово: " + now_leader.get_now_answer());
 
             while (now_leader.check_answer() == false)
             {
+                Console.WriteLine("Загаданное слово: " + now_leader.get_now_answer());
                 Console.Write("Игрок №" + now_leader.get_now_user() + ", введите букву:");
                 String vvod_char = Console.ReadLine();
+                now_leader.check_now_answer(vvod_char);
             }
-            
+            Console.WriteLine("Загаданное слово: " + now_leader.get_now_answer());
+            Console.WriteLine("Игра завершена");
         }
     }
 }
