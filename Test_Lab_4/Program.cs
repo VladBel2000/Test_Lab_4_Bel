@@ -15,7 +15,6 @@ namespace Test_Lab_4
             public leader()
             {
                 answer = generate_answer();
-                answer = "папа";
 
                 now_answer = generate_now_answer(answer.Length);
 
