@@ -19,6 +19,18 @@ namespace Test_Lab_4
                 String now_password = "Ответ";
                 return now_password;
             }
+            public string RandomString(int length)
+            {
+                var result = new char[length];
+                var r = new Random();
+                for (int i = 0; i < result.Length; i++)
+                {
+                    do
+                        result[i] = (char)r.Next(127);
+                    while (result[i] < '!');
+                }
+                return new string(result);
+            }
 
         }
         static void Main(string[] args)
