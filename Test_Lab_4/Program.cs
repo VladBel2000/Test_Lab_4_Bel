@@ -9,9 +9,15 @@ namespace Test_Lab_4
             String answer;
             int count_users;
 
-            public leader(int p_count_users)
+            public leader()
             {
                 answer = generate_answer();
+
+                //Создание объекта для генерации чисел
+                Random rnd = new Random();
+
+                //Получить случайное число (в диапазоне от 0 до 10)
+                int p_count_users = rnd.Next(2, 4);
                 count_users = p_count_users;
             }
             public string generate_answer()
@@ -41,7 +47,7 @@ namespace Test_Lab_4
         }
         static void Main(string[] args)
         {
-            leader now_leader = new leader(4);
+            leader now_leader = new leader();
         }
     }
 }
