@@ -40,6 +40,13 @@ namespace Test_Lab_4
                     now_user++;
                 return now_user;
             }
+            public bool check_answer()
+            {
+                if (answer == now_answer)
+                    return true;
+                else
+                    return false;
+            }
 
 
             public string generate_now_answer(int count_char)
@@ -50,7 +57,6 @@ namespace Test_Lab_4
 
             public String get_now_answer()
             {
-
                 return now_answer;
             }
 
@@ -79,7 +85,11 @@ namespace Test_Lab_4
             leader now_leader = new leader();
             Console.WriteLine("Загаданное слово: " + now_leader.get_now_answer());
 
-            Console.WriteLine("Игрок №" + now_leader.get_now_user() + ", введите букву:");
+            while (now_leader.check_answer() == false)
+            {
+                Console.Write("Игрок №" + now_leader.get_now_user() + ", введите букву:");
+                String vvod_char = Console.ReadLine();
+            }
             
         }
     }
