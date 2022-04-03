@@ -18,10 +18,11 @@ namespace Test_Lab_4
             {
                 //Создание объекта для генерации чисел
                 Random rnd = new Random();
-                //Получить случайное число (в диапазоне от 0 до 12)
+
+                //Получить случайное число (в диапазоне от 0 до 10)
                 int value = rnd.Next(4, 10);
 
-                String now_password = "Ответ";
+                String now_password = RandomString(value);
                 return now_password;
             }
             public string RandomString(int length)
