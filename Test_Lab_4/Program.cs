@@ -9,6 +9,7 @@ namespace Test_Lab_4
         {
             String answer;
             int count_users;
+            int now_user;
 
             public leader()
             {
@@ -20,12 +21,29 @@ namespace Test_Lab_4
                 //Получить случайное число (в диапазоне от 0 до 10)
                 int p_count_users = rnd.Next(2, 4);
                 count_users = p_count_users;
+                now_user = 0;
             }
 
             public String get_answer() 
             {
                 return answer;
             }
+            public int get_now_user()
+            {
+                if (now_user == count_users)
+                    now_user = 1;
+                else
+                    now_user++;
+                return now_user;
+            }
+
+            //
+            public String get_print_answer()
+            {
+
+                return answer;
+            }
+
 
             public string generate_answer()
             {
@@ -50,7 +68,9 @@ namespace Test_Lab_4
         static void Main(string[] args)
         {
             leader now_leader = new leader();
-            Console.WriteLine(now_leader.get_answer());
+            Console.WriteLine("Загаданное слово: " + now_leader.get_print_answer());
+
+            Console.WriteLine("Игрок №" + now_leader.get_now_user() + ", введите букву:");
         }
     }
 }
