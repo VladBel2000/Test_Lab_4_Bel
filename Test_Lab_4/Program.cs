@@ -16,6 +16,11 @@ namespace Test_Lab_4
             }
             public string generate_answer()
             {
+                //Создание объекта для генерации чисел
+                Random rnd = new Random();
+                //Получить случайное число (в диапазоне от 0 до 12)
+                int value = rnd.Next(4, 10);
+
                 String now_password = "Ответ";
                 return now_password;
             }
