@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Test_Lab_4
 {
@@ -20,6 +21,12 @@ namespace Test_Lab_4
                 int p_count_users = rnd.Next(2, 4);
                 count_users = p_count_users;
             }
+
+            public String get_answer() 
+            {
+                return answer;
+            }
+
             public string generate_answer()
             {
                 //Создание объекта для генерации чисел
@@ -33,21 +40,17 @@ namespace Test_Lab_4
             }
             public string RandomString(int length)
             {
-                var result = new char[length];
-                var r = new Random();
-                for (int i = 0; i < result.Length; i++)
-                {
-                    do
-                        result[i] = (char)r.Next(127);
-                    while (result[i] < '!');
-                }
-                return new string(result);
+                Random rnd = new Random();
+                const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+                return new string(Enumerable.Repeat(chars, length)
+                  .Select(s => s[rnd.Next(s.Length)]).ToArray());
             }
 
         }
         static void Main(string[] args)
         {
             leader now_leader = new leader();
+            Console.WriteLine(now_leader.get_answer());
         }
     }
 }
