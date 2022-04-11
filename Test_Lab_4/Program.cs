@@ -26,7 +26,10 @@ namespace Test_Lab_4
                 count_users = p_count_users;
                 now_user = 0;
             }
-
+            public void set_now_answer(String p_now_answer)
+            {
+                now_answer = p_now_answer;
+            }
             public String get_answer() 
             {
                 return answer;
@@ -92,6 +95,40 @@ namespace Test_Lab_4
             }
 
         }
+        class tester
+        {
+            public tester(){ }
+
+            public void create_leader()
+            {
+                leader help = new leader();
+            }
+
+            public void have_answer()
+            {
+                leader help = new leader();
+                String answer = help.get_answer();
+                String answer_2 = help.generate_answer();
+            }
+
+            public void gener_now_answer()
+            {
+                leader help = new leader();
+                String answer = help.get_answer();
+                String now_answer = help.get_now_answer();
+                if (answer.Length != now_answer.Length)
+                    Console.WriteLine("Не совпадает длина");
+            }
+
+            public void check_answer()
+            {
+                leader help = new leader();
+                String answer = help.get_answer();
+                help.set_now_answer(answer);
+                help.check_answer();
+            }
+
+        };
         static void Main(string[] args)
         {
             leader now_leader = new leader();
